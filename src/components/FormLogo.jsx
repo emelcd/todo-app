@@ -1,3 +1,4 @@
+import {v4 as uid4} from 'uuid';
 import React, { useState, useEffect } from 'react'
 import './FormLogo.scss'
 
@@ -9,7 +10,6 @@ function FormLogo() {
             .then(res => res.json())
             .then((res) => {
                 setList(res)
-                console.log(res);
                 setLoading(true)
 
             })
@@ -23,22 +23,22 @@ function FormLogo() {
             <h1 className="title">LIST WHISKY</h1>
             <div className="card">
                 {list.map(item => (
-                    <div key={Math.floor(Math.random()*100)} className="container">
+                    <div key={uid4()} className="container">
                         <h1 className="card__title"><a href={item.url}>{item.name}</a> </h1>
                         <div className="fee__bar">
-                            <div className>
+                            <div >
                             {item.buyers_fee}<br />
                             <span>buyers</span>
                             </div>
-                            <div className>
+                            <div >
                             {item.listing_fee}<br />
                             <span>listing</span>
                             </div>
-                            <div className>
+                            <div >
                             {item.reserve_fee}<br />
                             <span>reserve</span>
                             </div>
-                            <div className>
+                            <div >
                             {item.sellers_fee}<br />
                             <span>sellers</span>
                             </div>
