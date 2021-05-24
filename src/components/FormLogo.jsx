@@ -11,12 +11,11 @@ function FormLogo() {
             .then((res) => {
                 setList(res)
                 setLoading(true)
-
             })
     }, [])
 
     if (!loading) {
-        return <h1 className="color:white">Cargando</h1>
+        return <h1 className="loading">Cargando</h1>
     } else {
         return (
             <>

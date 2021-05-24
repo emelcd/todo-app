@@ -17,6 +17,12 @@
     
 }
 
+.loading {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+}
 .container {
     background-color: #181818;
     margin: 1rem;
