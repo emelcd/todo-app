@@ -11,7 +11,7 @@
 }
 .title {
     text-align: center;
-    color: white;
+    color: rgb(216, 158, 49);
     padding: 1rem;
     font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
     
@@ -29,7 +29,7 @@
     padding: 1.2rem;
     border-radius: 20px;
     min-width: 250px;
-    flex-grow: 2;
+    flex-grow: .3;
     .card__title{
         text-align: center;
         font-size: 1rem;
@@ -39,6 +39,7 @@
     a {
         text-decoration: none;
         color: whitesmoke;
+        flex-grow: .3;
         font-family: Verdana, Geneva, Tahoma, sans-serif
     }
     transition: all 1s;

@@ -5,14 +5,19 @@ import './FormLogo.scss'
 function FormLogo() {
     const [list, setList] = useState({})
     const [loading, setLoading] = useState(false)
+    const [error, setError] = useState(null)
     useEffect(() => {
         fetch("http://localhost:5000")
             .then(res => res.json())
             .then((res) => {
                 setList(res)
                 setLoading(true)
-            })
+            },
+            error=>setError(error))
     }, [])
+    if (error) {
+        return <h1 className="loading">{error.message}</h1>
+    }
 
     if (!loading) {
         return <h1 className="loading">Cargando</h1>
@@ -23,7 +28,9 @@ function FormLogo() {
             <div className="card">
                 {list.map(item => (
                     <div key={uid4()} className="container">
-                        <h1 className="card__title"><a href={item.url}>{item.name}</a> </h1>
+                        <a href={item.url}>
+
+                        <h1 className="card__title">{item.name}</h1>
                         <div className="fee__bar">
                             <div >
                             {item.buyers_fee}<br />
@@ -43,6 +50,7 @@ function FormLogo() {
                             </div>
 
                         </div>
+                            </a>
                         <span>
                             {item.base_currency}
 
